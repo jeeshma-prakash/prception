@@ -390,7 +390,7 @@
       transition: transform 0.1s ease;
   }
   @media(max-width:996px){
-    #magic-cursor{
+    #magic-cursor ,#ball{
       display: none;
     }
   }
