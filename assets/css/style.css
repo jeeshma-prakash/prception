@@ -533,7 +533,7 @@
 }
 
 /* Responsive */
-@media (max-width: 867.98px) {
+@media (max-width: 992px) {
   .main-layout {
     flex-direction: column;
     height: auto;
@@ -734,7 +734,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .service-item {
-    margin-top: -50px;
+    margin-top: -40px;
     padding: 1.5rem;
   }
   .service-item h2 {
@@ -753,7 +753,7 @@
 
 @media (max-width: 425px) {
   .service-item {
-    margin-top: -40px;
+    margin-top: -35px;
     padding: 1.5rem;
   }
   .service-item h2 {
