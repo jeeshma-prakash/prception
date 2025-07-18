@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Floating Services Pills</title>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f5f5f5;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+
+    .header-ca .serv {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      overflow: hidden;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .header-ca .serv h6 {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .header-ca .serv .content {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+    .header-ca .serv .content .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      cursor: grab;
+    }
+
+    .header-ca .serv .content .item span {
+      font-size: 14px;
+      padding: 6px 18px;
+      background: #EFF0FA;
+      border-radius: 30px;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .header-ca .serv .content .item span.bdark {
+      background: #151515;
+      color: #fff;
+    }
+
+    .header-ca .serv .content .item span.bred {
+      background: #ff4a57;
+      color: #fff;
+    }
+
+    .header-ca .serv .content .item img {
+      width: 50px;
+    }
+
+    .header-ca .serv .content .item .icon1 img {
+      width: 70px;
+    }
+
+    @media (max-width: 767px) {
+      .header-ca .serv .content {
+        height: 250px;
+      }
+
+      .header-ca .serv h6 {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="header-ca">
+    <div class="serv">
+      <h6>
+        Based in Boston, MA. We're an agency that focused on crafting experience design & development digital products.
+      </h6>
+      <div class="content" id="pill-container">
+        <div class="item"><span>SEO/Marketing</span></div>
+        <div class="item"><span class="bdark">Motion</span></div>
+        <div class="item icon1"><img src="assets/images/logo1.png" alt="icon" /></div>
+        <div class="item"><span class="bred">UI/UX Design</span></div>
+        <div class="item"><img src="assets/images/icon-1.png" alt="icon" /></div>
+        <div class="item"><span>Branding</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger, Draggable);
+
+  const pills = gsap.utils.toArray(".serv .item");
+
+  pills.forEach((pill, i) => {
+    // Initial fall animation when section comes into view
+    gsap.fromTo(pill, {
+      y: -150,
+      opacity: 0,
+      x: gsap.utils.random(-50, 50)
+    }, {
+      y: gsap.utils.random(100, 220),
+      x: gsap.utils.random(0, 250),
+      opacity: 1,
+      ease: "bounce.out",
+      delay: i * 0.1,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".serv",
+        start: "top 80%",
+      },
+      onComplete: () => {
+        floatAround(pill);
+        makeDraggable(pill);
+      }
+    });
+  });
+
+  // Floating animation
+  function floatAround(target) {
+    gsap.to(target, {
+      duration: gsap.utils.random(2, 4),
+      y: "+=" + gsap.utils.random(-20, 20),
+      x: "+=" + gsap.utils.random(-20, 20),
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+  }
+
+  // Make items draggable and return them
+  function makeDraggable(el) {
+    Draggable.create(el, {
+      inertia: true,
+      bounds: "#pill-container",
+      edgeResistance: 0.7,
+      onRelease: function () {
+        gsap.to(el, {
+          x: gsap.utils.random(0, 250),
+          y: gsap.utils.random(100, 220),
+          duration: 1,
+          ease: "power2.out"
+        });
+      }
+    });
+  }
+
+  // ---- Shake Detection for Mobile ---- //
+let lastShake = 0;
+let shakeThreshold = 15;
+
+if (window.DeviceMotionEvent) {
+  window.addEventListener("devicemotion", function(event) {
+    let acc = event.accelerationIncludingGravity;
+    let currTime = new Date().getTime();
+
+    if ((currTime - lastShake) > 1000) {
+      let speed = Math.abs(acc.x + acc.y + acc.z);
+
+      if (speed > shakeThreshold) {
+        lastShake = currTime;
+        shakePills();
+      }
+    }
+  });
+}
+
+function shakePills() {
+  pills.forEach((pill) => {
+    gsap.to(pill, {
+      x: "+=" + gsap.utils.random(-80, 80),
+      y: "+=" + gsap.utils.random(-80, 80),
+      duration: 0.5,
+      ease: "power2.out",
+      onComplete: () => {
+        // Return gently to random float position
+        gsap.to(pill, {
+          x: gsap.utils.random(0, 250),
+          y: gsap.utils.random(100, 220),
+          duration: 1,
+          ease: "power3.out"
+        });
+      }
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>
