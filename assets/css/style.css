@@ -1138,7 +1138,29 @@
       .process-image-wrapper {
         flex: 1 1 100%;
       }
+      #process-section{
+        margin: 0;
+      }
+      .process-ca{
+        padding: 10px;
+      }
+       .container.process{
+      padding: 0;
     }
+    .process-desc{
+      max-width: 600px;
+    }
+    .process-image-wrapper img{
+      width: 400px;
+    }
+    }
+
+  @media (max-width:465px){
+    .numbers-ca .item{
+      flex:none;
+    }
+
+  }
 
     /* floating elements like water */
 
