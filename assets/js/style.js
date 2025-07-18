@@ -421,24 +421,24 @@ if (window.DeviceMotionEvent) {
 }
 
 // Shake effect (scatter and return)
-function shakePills() {
-  pills.forEach((pill) => {
-    gsap.to(pill, {
-      x: "+=" + gsap.utils.random(-80, 80),
-      y: "+=" + gsap.utils.random(-80, 80),
-      duration: 0.5,
-      ease: "power2.out",
-      onComplete: () => {
-        gsap.to(pill, {
-          x: gsap.utils.random(0, 200),
-          y: gsap.utils.random(100, 220),
-          duration: 1,
-          ease: "power3.out"
-        });
-      }
-    });
-  });
-}
+// function shakePills() {
+//   pills.forEach((pill) => {
+//     gsap.to(pill, {
+//       x: "+=" + gsap.utils.random(-80, 80),
+//       y: "+=" + gsap.utils.random(-80, 80),
+//       duration: 0.5,
+//       ease: "power2.out",
+//       onComplete: () => {
+//         gsap.to(pill, {
+//           x: gsap.utils.random(0, 200),
+//           y: gsap.utils.random(100, 220),
+//           duration: 1,
+//           ease: "power3.out"
+//         });
+//       }
+//     });
+//   });
+// }
 
 // Make sure to refresh ScrollTrigger after preloader
 window.addEventListener("load", () => {
