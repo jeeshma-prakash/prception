@@ -52,7 +52,7 @@
 
     /* Offcanvas (mobile menu sliding from right) */
     .offcanvas {
-      background: rgba(0,0,0,.92);
+      background: rgba(0, 0, 0, 0.438);
       backdrop-filter: blur(6px);
     }
     .offcanvas .nav-link {
@@ -60,7 +60,7 @@
       font-size: 1.2rem;
       margin: .4rem 0;
     }
-    .offcanvas .nav-link.active {
+    .offcanvas .nav-link:hover {
       background: #fff;
       color: #000 !important;
       border-radius: 6px;

@@ -4,7 +4,9 @@
     background: #313435;
     cursor: none;
   }
-
+a{
+  text-decoration: none;
+}
 
 
 
@@ -207,7 +209,7 @@
   .hero-section {
     font-family: "Poppins", sans-serif;
     width: 100%;
-    min-height: 100vh;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -376,6 +378,11 @@
     .pr {
       transform: translate(3px, -10px) !important;
     }
+     .scroll-down,
+     .projects-link{
+      font-size: .7rem;
+      bottom: 1px;
+     }
   }
 
   /* section showcase */
@@ -476,6 +483,7 @@
 @media(max-width:467px){
   .second-section{
     padding: 50px;
+    gap: 1px;
   }
   .section-showcases{
     margin: 10px;
@@ -964,6 +972,15 @@
 
     .connect-section h2 {
       font-size: 2.8rem !important;
+    }
+    .services-stacked{
+      margin-top: 0;
+    }
+    .service{
+      padding-top: 0 !important;
+    }
+    .services-header{
+      margin-bottom: 5rem;
     }
   }
 
