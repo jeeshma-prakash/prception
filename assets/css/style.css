@@ -1,7 +1,7 @@
   body {
       margin: 0;
       overflow-x: hidden;
-      background: #ababab;
+      background: #333333;
       cursor: none;
   }
 
@@ -204,7 +204,7 @@
 .hero-section {
     font-family: "Poppins", sans-serif;
     width: 100%;
-    min-height: 88vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,6 +212,16 @@
     text-align: center;
     position: relative;
 }
+.hero-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures full coverage without stretching */
+  z-index: -1;       /* keeps video behind the hero content */
+}
+
 
 .hero-title {
     font-size: 9vw;
@@ -226,6 +236,7 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  color: rgba(173, 173, 173, 0.589);
   /* gap: 4px; */
 }
 
@@ -234,6 +245,8 @@
   font-size: 10vw;
   font-weight: bold;
   display: inline-block;
+   /* color: rgb(2, 2, 2); */
+   color: rgba(173, 173, 173, 0.589);
 }
 
 .ception {
@@ -241,6 +254,7 @@
   flex-wrap: nowrap;
   white-space: nowrap;
   /* gap: 2px; */
+ 
 }
 
 .ception span {
@@ -264,6 +278,7 @@
     position: absolute;
     bottom: 40px;
     text-align: center;
+     color: rgba(173, 173, 173, 0.589);
 }
 
 .scroll-down {
@@ -271,6 +286,7 @@
     bottom: 20px;
     font-size: 1vw;
     left: 30px;
+      color: rgba(177, 175, 175, 0.589);
 }
 
 .projects-link {
@@ -278,6 +294,7 @@
     bottom: 20px;
     font-size: 1vw;
     right: 30px;
+     color: rgba(177, 175, 175, 0.589);
 }
 
 .second-section {
@@ -295,6 +312,7 @@
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
+   color: rgba(173, 173, 173, 0.589);
 }
 
 .bennet-placeholder {
@@ -349,7 +367,78 @@
 }
 }
 
+/* section showcase */
+   :root {
+      --color-dark-1: #0e0e0e;
+    }
 
+    /* Showcase Section */
+    .section-showcases-wrapper {
+      /* background: #747474; */
+      font-family: Arial, sans-serif;
+      color: #fff;
+      height: 170vh; /* enough scroll space for parallax */
+      margin: 0;
+      margin-top: 7rem;
+    }
+
+    .section-showcases {
+      position: relative;
+      padding-top: 67%;
+      background: var(--color-dark-1);
+      border: 0.625vw solid var(--color-dark-1);
+      border-radius: 60px;
+      overflow: hidden;
+      transform: translateZ(0);
+      isolation: isolate;
+      margin: 50px;
+    }
+
+    .section-showcases-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .section-showcases-column {
+      width: 24.6875%;
+      padding-left: 0.625vw;
+    }
+
+    .section-showcases-column:first-child {
+      width: 12.6875%;
+      padding-left: 0;
+    }
+
+    .section-showcases-column:last-child {
+      width: 13.25%;
+    }
+
+    .section-showcases-item {
+      padding-top: 0.625vw;
+      overflow: hidden; /* keeps image inside frame */
+      border-radius: 20px;
+    }
+
+    .section-showcases-item:first-child {
+      padding-top: 0;
+    }
+
+    .section-showcases-item img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+
+    /* Offset alternate columns */
+    .section-showcases-column:nth-child(2),
+    .section-showcases-column:nth-child(4) {
+      margin-top: -5%;
+    }
 
 
   /* 

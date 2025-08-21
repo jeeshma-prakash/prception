@@ -1,34 +1,64 @@
-<nav class="navbar navbar-expand-lg bg-transparent">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="assets/images/logo.png" alt="logo" class="navlogo me-2">
-        </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
 
-        <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="assets/images/logo_rgba.png" alt="logo" class="navlogo me-2">
+    </a>
 
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Index</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Agency</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Resources</a>
-                </li>
-            </ul>
-        </div>
-         <button class="btn">
-                <span class="text">Contact</span>
-            </button>
+    <!-- Toggler (opens right slide menu) -->
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Desktop Links -->
+    <div class="d-none d-lg-flex ">
+      <ul class="navbar-nav gap-3 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Index</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Agency</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
     </div>
+
+    <!-- Contact (desktop only) -->
+    <button class="btn d-none d-lg-flex ms-3">
+      <span class="text">Contact</span>
+    </button>
+  </div>
 </nav>
+
+<!-- OFFCANVAS (Right slide-in menu on mobile) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-white" id="mobileNavLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item mb-2">
+        <a class="nav-link active" href="#" data-bs-dismiss="offcanvas">Index</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Projects</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Agency</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Resources</a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcases Section</title>
+  <style>
+    :root {
+      --color-dark-1: #0e0e0e;
+    }
+
+    /* Showcase Section */
+    .section-showcases-wrapper {
+      background: #747474;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      height: 300vh; /* enough scroll space for parallax */
+      margin: 0;
+    }
+
+    .section-showcases {
+      position: relative;
+      padding-top: 67%;
+      background: var(--color-dark-1);
+      border: 0.625vw solid var(--color-dark-1);
+      border-radius: 60px;
+      overflow: hidden;
+      transform: translateZ(0);
+      isolation: isolate;
+      margin: 50px;
+    }
+
+    .section-showcases-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .section-showcases-column {
+      width: 24.6875%;
+      padding-left: 0.625vw;
+    }
+
+    .section-showcases-column:first-child {
+      width: 12.6875%;
+      padding-left: 0;
+    }
+
+    .section-showcases-column:last-child {
+      width: 13.25%;
+    }
+
+    .section-showcases-item {
+      padding-top: 0.625vw;
+      overflow: hidden; /* keeps image inside frame */
+      border-radius: 20px;
+    }
+
+    .section-showcases-item:first-child {
+      padding-top: 0;
+    }
+
+    .section-showcases-item img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+
+    /* Offset alternate columns */
+    .section-showcases-column:nth-child(2),
+    .section-showcases-column:nth-child(4) {
+      margin-top: -5%;
+    }
+
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fixed Transparent Navbar */
+    .navbar {
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent !important;
+      z-index: 1000;
+    }
+
+    .navlogo {
+      width: 100px;
+    }
+
+    .nav-link {
+      color: black;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-link.active {
+      background-color: black;
+      color: white !important;
+      padding: 5px 15px;
+      border-radius: 5px;
+    }
+
+    /* Contact Button */
+    .btn {
+      border: none;
+      width: 6em;
+      height: 2.5em;
+      border-radius: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 0 10px #5b5b5b;
+      gap: 12px;
+      background: #979797;
+      cursor: pointer;
+      transition: all 450ms ease-in-out;
+    }
+
+    .text {
+      font-weight: 600;
+      color: #000000;
+      font-size: medium;
+    }
+
+    button:hover svg {
+      transform: translateX(4px);
+      color: white;
+    }
+
+    button svg {
+      color: rgb(0, 0, 0);
+      transition: 0.2s;
+      position: relative;
+      width: 13px;
+      transition-delay: 0.2s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(0deg,#474545,#000000);
+      box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+                  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+                  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+                  0px 0px 180px 0px #5e5e5e;
+      transform: translateY(-2px);
+    }
+
+    .btn:hover .text {
+      color: white;
+    }
+
+    /* Mobile Nav Slide In */
+    .navbar-collapse {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.4s ease-in-out;
+    }
+
+    .navbar-collapse.show {
+      right: 0;
+    }
+
+    .navbar-nav {
+      text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 991px) {
+      .btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="assets/images/logo.png" alt="logo" class="navlogo me-2">
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Index</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Agency</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact Button -->
+    <button class="btn d-none d-lg-flex">
+      <span class="text">Contact</span>
+    </button>
+  </div>
+</nav>
+  <!-- Showcases Section -->
+  <section class="section-showcases-wrapper">
+    <div class="section-showcases">
+      <div class="section-showcases-container">
+        
+        <!-- Column 1 - move down -->
+        <div class="section-showcases-column" data-rellax-speed="2">
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-1-1.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-1-2.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-1-3.jpg" alt=""></div>
+        </div>
+
+        <!-- Column 2 - move up -->
+        <div class="section-showcases-column" data-rellax-speed="-2">
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-2-1.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-2-2.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-2-3.jpg" alt=""></div>
+        </div>
+
+        <!-- Column 3 - move down -->
+        <div class="section-showcases-column" data-rellax-speed="2">
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-3-1.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-3-2.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-3-3.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-3-4.jpg" alt=""></div>
+        </div>
+
+        <!-- Column 4 - move up -->
+        <div class="section-showcases-column" data-rellax-speed="-2">
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-4-1.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-4-2.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-4-3.jpg" alt=""></div>
+        </div>
+
+        <!-- Column 5 - move down -->
+        <div class="section-showcases-column" data-rellax-speed="2">
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-5-1.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-5-2.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-5-3.jpg" alt=""></div>
+          <div class="section-showcases-item"><img src="assets/images/demo/showcases-5-4.jpg" alt=""></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Showcases Section -->
+
+  <!-- Rellax JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+  <script>
+    var rellax = new Rellax('[data-rellax-speed]');
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Custom Slide In
+  const toggler = document.querySelector('.navbar-toggler');
+  const nav = document.getElementById('navbarNav');
+
+  toggler.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
