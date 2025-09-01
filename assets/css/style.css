@@ -567,6 +567,7 @@ a{
 
   .main-layout {
     display: flex;
+    justify-content: center;
     height: 100%;
     /* background: #000; */
     background-image: url(../images/grid-bg.png) !important;
@@ -632,7 +633,7 @@ a{
 
   .right-scrollable {
     width: 75%;
-    padding: 3rem 2rem;
+    padding: 3rem 3rem;
 
   }
 
@@ -668,6 +669,7 @@ a{
   .public {
     font-size: 4.5rem;
     padding-bottom: 2rem;
+    /* padding-top: 2rem; */
 
   }
 
@@ -832,6 +834,9 @@ a{
   }
 
   /* services */
+  .service{
+    margin-bottom: 3rem;
+  }
 
   .our {
     font-size: 5rem;
@@ -844,48 +849,38 @@ a{
 
   .services-stacked {
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .services-header {
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
   }
 
   .service-item {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     position: relative;
     background: #111;
     color: white;
     padding: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.038);
-    margin-top: -70px;
+    /* margin-top: 0px; */
     z-index: 1;
     transition: all 0.4s ease;
     overflow: hidden;
+    justify-content: space-between;
   }
 
-  .service-item1 {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    background: #111;
-    color: white;
-    padding: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: -80px;
-    z-index: 1;
-    transition: all 0.4s ease;
-    overflow: hidden;
-  }
+
 
 
   .service-item h2 {
-    font-size: 6vw;
+    font-size: 3vw;
     font-family: 'Inter', sans-serif;
     font-weight: 800;
     margin: 0;
     transition: color 0.4s ease;
+    
   }
 
   .service-item p {
@@ -1108,7 +1103,7 @@ a{
   /* testimonial */
 
   .reviews-section {
-    padding: 60px 20px;
+    padding: 60px 40px;
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 4rem;
@@ -1213,7 +1208,7 @@ a{
   #process-section {
     background-color: transparent;
     padding: 60px 0;
-    margin: 20px;
+    /* margin: 20px; */
     position: relative;
     z-index: 1;
   }
@@ -1223,7 +1218,7 @@ a{
     z-index: 1;
     border-radius: 20px;
     overflow: visible;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: auto;
   }
 
@@ -1336,11 +1331,11 @@ a{
 
   .numbers-ca .item h2 {
     margin-bottom: 20px;
-    font-size: 62px;
+    font-size: 45px;
   }
 
   .numbers-ca .item span {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     text-transform: uppercase;
   }
