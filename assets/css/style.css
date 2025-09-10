@@ -320,7 +320,7 @@ a{
 
   .second-section h2 {
     font-size: 4.5vw;
-    font-weight: bold;
+    font-weight:500;
     margin: 0;
     line-height: 1.2;
     color: rgba(173, 173, 173, 0.589);
